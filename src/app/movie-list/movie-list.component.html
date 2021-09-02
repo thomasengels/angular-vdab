@@ -1,0 +1,6 @@
+<ul class="collection">
+    <li class="collection-item avatar" *ngFor="let movie of movies">
+        <img [src]="movie.poster" [alt]="movie.title" />
+        <span class="title">{{movie.title}}</span>
+    </li>
+</ul>
