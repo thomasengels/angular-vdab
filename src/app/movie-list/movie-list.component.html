@@ -1,8 +1,8 @@
-<ul class="collection">
-    <li class="collection-item avatar" *ngFor="let movie of movies">
-        <a [routerLink]="['/movies/', movie.id]">
-            <img [src]="movie.poster" [alt]="movie.title" />
-            <span class="title">{{movie.title}}</span>
+<ul class="collection ">
+    <li class="collection-item avatar " *ngFor="let movie of movies ">
+        <a [routerLink]="[ '/movies/', movie.id] ">
+            <img [src]="movie.poster " [alt]="movie.title " />
+            <span class="title ">{{movie.title}}</span>
         </a>
     </li>
 </ul>

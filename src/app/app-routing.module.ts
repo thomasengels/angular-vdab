@@ -1,3 +1,4 @@
+import { MoviesAddComponent } from './movies-add/movies-add.component';
 import { MovieDetailComponent } from './movie-detail/movie-detail.component';
 import { MovieListComponent } from './movie-list/movie-list.component';
 import { AppComponent } from './app.component';
@@ -14,6 +15,10 @@ const routes: Routes = [
   {
     path: 'movies',
     component: MovieListComponent
+  },
+  {
+    path: 'movies/add',
+    component: MoviesAddComponent
   },
   {
     path: 'movies/:id',

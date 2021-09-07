@@ -1,0 +1,11 @@
+<form #searchForm="ngForm" (ngSubmit)="searchMovie(searchForm.value)">
+    <input type="text" placeholder="search for movie" name="title" required ngModel>
+    <button type="submit" [disabled]="searchForm.invalid">Search</button>
+</form>
+
+<ul class="collection ">
+    <li class="collection-item avatar " *ngFor="let movie of searchedMovies" (click)="addMovie(movie.onlineId)">
+        <img [src]="movie.poster " [alt]="movie.title " />
+        <span class="title ">{{movie.title}}</span>
+    </li>
+</ul>

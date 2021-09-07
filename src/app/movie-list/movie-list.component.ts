@@ -1,3 +1,4 @@
+import { ViewChild } from '@angular/core';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Movie } from '../models/movie.model';
@@ -25,5 +26,4 @@ export class MovieListComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.movieSubscription.unsubscribe();
   }
-
 }
