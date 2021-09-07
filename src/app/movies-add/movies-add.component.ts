@@ -2,6 +2,7 @@ import { MoviesService } from './../services/movies.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Movie } from '../models/movie.model';
+import { ViewChild } from '@angular/core';
 
 export interface Search {
   title: string;
@@ -14,6 +15,9 @@ export interface Search {
 })
 export class MoviesAddComponent implements OnInit {
   searchedMovies: Movie[] = [];
+
+  @ViewChild("searchForm") searchForm: any;
+  @ViewChild("title") title: any;
 
   constructor(private moviesService: MoviesService,
               private router: Router) { }
