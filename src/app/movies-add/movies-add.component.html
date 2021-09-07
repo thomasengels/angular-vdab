@@ -1,10 +1,11 @@
 <form #searchForm="ngForm" (ngSubmit)="searchMovie(searchForm.value)" novalidate>
     <input #title="ngModel" [ngClass]="searchForm.invalid && searchForm.pristine && searchForm.untouched ? 'invalid' : ''" type="text" placeholder="search for movie" name="title" required minlength="2" ngModel>
-    <button type="submit" [disabled]="searchForm.invalid">Search</button>
+
     <ng-container *ngIf="title.invalid">
         <span *ngIf="title.errors?.required">Search is required</span>
         <span *ngIf="title.errors?.minlength">Search has a min length of 2 (current length is {{title.errors.minlength.actualLength}})</span>
     </ng-container>
+    <button type="submit" [disabled]="searchForm.invalid">Search</button>
 </form>
 
 <ul class="collection " #list>
