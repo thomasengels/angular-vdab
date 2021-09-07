@@ -8,14 +8,7 @@ import { Movie } from './models/movie.model';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit{
-  movies: Movie[];
+export class AppComponent{
 
-  constructor(private moviesService: MoviesService){
-
-  }
-  ngOnInit(): void {
-    this.movies = this.moviesService.getMovies();
-  }
 
 }
