@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Movie } from '../models/movie.model';
 import { ViewChild } from '@angular/core';
+import { of } from 'rxjs';
+import { filter, map, concatMap, delay } from 'rxjs/operators';
 
 export interface Search {
   title: string;
@@ -23,6 +25,37 @@ export class MoviesAddComponent implements OnInit {
               private router: Router) { }
 
   ngOnInit(): void {
+    let numbers$ = of(
+      5,
+      6,
+      8
+    );
+
+    numbers$ = numbers$.pipe(
+      concatMap(number => of(number).pipe(
+      filter(value => {
+        return value % 2 === 0;
+      }),
+      map(value => {
+        return value * 2;
+      }),
+      delay(3000)
+    )));
+
+    const subscription = numbers$.subscribe(value => {
+      console.log(value);
+    },
+    erro => {
+      console.log(erro);
+    }, () => {
+      console.log("completed");
+    });
+
+    subscription.unsubscribe();
+
+    console.log("after subscribe");
+
+
   }
 
    searchMovie(value: Search){

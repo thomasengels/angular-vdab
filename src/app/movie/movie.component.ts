@@ -8,7 +8,6 @@ import { Movie } from '../models/movie.model';
 })
 export class MovieComponent implements OnInit {
   @Input() movie: Movie;
-  @Output() movieChange = new EventEmitter<Movie>();
   @Output() selected = new EventEmitter<Movie>();
 
 

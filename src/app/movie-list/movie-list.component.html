@@ -1,5 +1,11 @@
 <ul class="collection ">
-    <media-movie [(movie)]="movie" (selected)="goToDetail($event)">
-    </media-movie>
+    <ng-container *ngIf="(movies$ | async)?.length > 0; else noMovies">
+        <media-movie *ngFor="let movie of movies$ | async" [movie]="movie" (selected)="goToDetail($event)">
+        </media-movie>
+    </ng-container>
+    <ng-template #noMovies>
+        <span>No movies available</span>
+    </ng-template>
+
 
 </ul>
