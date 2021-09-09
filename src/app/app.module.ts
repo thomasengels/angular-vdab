@@ -1,3 +1,4 @@
+import { TvshowModule } from './tvshow/tvshow.module';
 import { RouterModule } from '@angular/router';
 import { MovieModule } from './movie/movie.module';
 import { BrowserModule } from '@angular/platform-browser';
@@ -16,10 +17,15 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
   imports: [
     BrowserModule,
     MovieModule,
+    TvshowModule,
     RouterModule.forRoot([{
       path: 'movies',
       loadChildren: './movie/movie.module#MoviesModule'
-    }])
+    },
+  {
+    path: 'tvshow',
+    loadChilderen: './tvshow/tvshow.module#TvShowModule'
+  }])
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
