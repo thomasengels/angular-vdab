@@ -11,8 +11,10 @@ export class MoviesService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getMovies(): Observable<Movie[]> {
-    return this.httpClient.get<Movie[]>(this.URL);
+  getMovies(showPublic: boolean): Observable<Movie[]> {
+    return this.httpClient.get<Movie[]>(this.URL, {
+      params: new HttpParams().append('public', showPublic.valueOf().toString())
+    });
   }
 
   getMovieById(id: number): Observable<Movie>{
@@ -25,9 +27,13 @@ export class MoviesService {
     });
   }
 
-  addMovie(onlineId: string): Observable<Movie>{
+  addMovie(onlineId: string, isPublic: boolean): Observable<Movie>{
+    let httpParams = new HttpParams();
+    httpParams = httpParams.append('public', isPublic.valueOf().toString());
     return this.httpClient.post<Movie>(this.URL, {
       'apiId': onlineId
+    }, {
+      params: httpParams
     });
   }
 }

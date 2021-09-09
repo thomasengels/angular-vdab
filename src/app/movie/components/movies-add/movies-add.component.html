@@ -9,8 +9,19 @@
 </form>
 
 <ul class="collection " #list>
-    <li class="collection-item avatar " *ngFor="let movie of searchedMovies" (click)="addMovie(movie.onlineId)">
-        <img [src]="movie.poster " [alt]="movie.title " />
-        <span class="title ">{{movie.title}}</span>
+    <li class="collection-item avatar " *ngFor="let movie of searchedMovies; let i = index">
+        <div (click)="addMovie(movie.onlineId, isPublic[i])">
+            <img [src]="movie.poster " [alt]="movie.title " />
+            <span class="title ">{{movie.title}}</span>
+        </div>
+
+        <div class="switch">
+            <label>
+              private
+              <input type="checkbox" [(ngModel)]="isPublic[i]">
+              <span class="lever"></span>
+              public
+            </label>
+        </div>
     </li>
 </ul>

@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, Output, EventEmitter, ViewChild } from '@angular/core';
-import { Movie } from '../models/movie.model';
+import { Movie } from '../../models/movie.model';
 
 @Component({
   selector: 'media-movie',

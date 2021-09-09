@@ -1,33 +1,31 @@
+import { RouterModule } from '@angular/router';
+import { MovieModule } from './movie/movie.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule} from '@angular/common/http';
+import { HTTP_INTERCEPTORS} from '@angular/common/http';
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
-import { MovieListComponent } from './movie-list/movie-list.component';
-import { MovieDetailComponent } from './movie-detail/movie-detail.component';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { MoviesAddComponent } from './movies-add/movies-add.component';
-import { MovieComponent } from './movie/movie.component';
+import { AuthInterceptor } from './interceptors/auth.interceptor';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
-    MovieListComponent,
-    MovieDetailComponent,
-    MoviesAddComponent,
-    MovieComponent
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    FormsModule
+    MovieModule,
+    RouterModule.forRoot([{
+      path: 'movies',
+      loadChildren: './movie/movie.module#MoviesModule'
+    }])
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: AuthInterceptor,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,13 @@
+<div class="switch">
+    <label>
+      private
+      <input type="checkbox" [(ngModel)]="showPublic" (ngModelChange)="getMovies(showPublic)">
+      <span class="lever"></span>
+      public
+    </label>
+</div>
+<ul class="collection ">
+    <media-movie *ngFor="let movie of movies$ | async" [movie]="movie" (selected)="goToDetail($event)">
+    </media-movie>
+
+</ul>
