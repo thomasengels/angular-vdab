@@ -1,5 +1,6 @@
 import { ViewChild } from '@angular/core';
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Movie } from '../models/movie.model';
 import { MoviesService } from '../services/movies.service';
@@ -14,7 +15,7 @@ export class MovieListComponent implements OnInit, OnDestroy {
 
   movieSubscription: Subscription;
 
-  constructor(private moviesService: MoviesService){
+  constructor(private moviesService: MoviesService, private router: Router){
 
   }
   ngOnInit(): void {
@@ -25,5 +26,9 @@ export class MovieListComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.movieSubscription.unsubscribe();
+  }
+
+  goToDetail(movie: Movie){
+    this.router.navigate(['/movies/', movie.id]);
   }
 }

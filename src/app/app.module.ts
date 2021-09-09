@@ -10,6 +10,7 @@ import { MovieDetailComponent } from './movie-detail/movie-detail.component';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { MoviesAddComponent } from './movies-add/movies-add.component';
+import { MovieComponent } from './movie/movie.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { MoviesAddComponent } from './movies-add/movies-add.component';
     HeaderComponent,
     MovieListComponent,
     MovieDetailComponent,
-    MoviesAddComponent
+    MoviesAddComponent,
+    MovieComponent
   ],
   imports: [
     BrowserModule,
