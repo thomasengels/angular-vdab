@@ -1,3 +1,4 @@
+import { AuthGuard } from './../core/guards/auth.guard';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { TvShowAddComponent } from './components/tv-show-add/tv-show-add.component';
@@ -9,6 +10,8 @@ const routes: Routes = [
   {
     path: 'tvshows',
     component: TvShowListComponent,
+    canActivate: [AuthGuard],
+    canActivateChild: [AuthGuard],
     children: [
       {
         path: 'add',
