@@ -7,16 +7,18 @@ import { TvShowListComponent } from './components/tv-show-list/tv-show-list.comp
 
 const routes: Routes = [
   {
-    path: '',
-    component: TvShowListComponent
-  },
-  {
-    path: 'add',
-    component: TvShowAddComponent
-  },
-  {
-    path: ':id',
-    component: TvShowDetailComponent
+    path: 'tvshows',
+    component: TvShowListComponent,
+    children: [
+      {
+        path: 'add',
+        component: TvShowAddComponent
+      },
+      {
+        path: ':id',
+        component: TvShowDetailComponent
+      }
+    ]
   }
 ];
 

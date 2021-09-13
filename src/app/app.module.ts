@@ -1,3 +1,4 @@
+import { CoreModule } from './core/core.module';
 import { TvshowModule } from './tvshow/tvshow.module';
 import { RouterModule } from '@angular/router';
 import { MovieModule } from './movie/movie.module';
@@ -7,7 +8,7 @@ import { HTTP_INTERCEPTORS} from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
-import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { AuthInterceptor } from './core/interceptors/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -18,13 +19,9 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
     BrowserModule,
     MovieModule,
     TvshowModule,
-    RouterModule
+    RouterModule,
+    CoreModule
   ],
-  providers: [{
-    provide: HTTP_INTERCEPTORS,
-    useClass: AuthInterceptor,
-    multi: true
-  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
