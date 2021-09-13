@@ -18,14 +18,7 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
     BrowserModule,
     MovieModule,
     TvshowModule,
-    RouterModule.forRoot([{
-      path: 'movies',
-      loadChildren: './movie/movie.module#MoviesModule'
-    },
-  {
-    path: 'tvshow',
-    loadChilderen: './tvshow/tvshow.module#TvShowModule'
-  }])
+    RouterModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
