@@ -1,3 +1,4 @@
+import { MovieResolver } from './resolver/movie.resolver';
 import { CoreModule } from './../core/core.module';
 import { SharedModule } from './../shared/shared.module';
 import { HttpClientModule } from '@angular/common/http';
@@ -20,6 +21,9 @@ import { MoviesAddComponent } from './components/movies-add/movies-add.component
     MovieRoutingModule,
     HttpClientModule,
     SharedModule
+  ],
+  providers: [
+    MovieResolver
   ]
 })
 export class MovieModule { }

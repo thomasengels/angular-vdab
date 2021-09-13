@@ -11,14 +11,10 @@ import { Movie } from '../../models/movie.model';
 export class MovieDetailComponent implements OnInit {
   movie: Movie;
 
-  constructor(private moviesService: MoviesService,
-              private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    const id: number = Number.parseInt(this.route.snapshot.paramMap.get('id'), 10);
-    this.moviesService.getMovieById(id).subscribe(movie => {
-      this.movie = movie;
-    } );
+    this.movie = this.route.snapshot.data['movie'];
   }
 
   getProperties(): string[] {
