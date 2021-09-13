@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit, OnDestroy {
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe(isAuthorized => {
         if (isAuthorized){
-            this.router.navigate(['tvshows']);
+            this.router.navigate(['tvshow']);
         }
       }, error => {
         console.log(error);

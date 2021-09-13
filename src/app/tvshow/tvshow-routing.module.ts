@@ -8,11 +8,10 @@ import { TvShowListComponent } from './components/tv-show-list/tv-show-list.comp
 
 const routes: Routes = [
   {
-    path: 'tvshows',
+    path: '',
     component: TvShowListComponent,
-    canActivate: [AuthGuard],
-    canActivateChild: [AuthGuard],
-    children: [
+    canActivate: [AuthGuard]
+  },
       {
         path: 'add',
         component: TvShowAddComponent
@@ -21,12 +20,11 @@ const routes: Routes = [
         path: ':id',
         component: TvShowDetailComponent
       }
-    ]
-  }
+
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
 export class TvshowRoutingModule { }

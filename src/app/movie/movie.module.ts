@@ -19,7 +19,6 @@ import { MoviesAddComponent } from './components/movies-add/movies-add.component
   imports: [
     CommonModule,
     MovieRoutingModule,
-    HttpClientModule,
     SharedModule
   ],
   providers: [

@@ -8,15 +8,15 @@ import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: 'movies',
+    path: '',
     component: MovieListComponent,
   },
       {
-        path: 'movies/add',
+        path: 'add',
         component: MoviesAddComponent
       },
       {
-        path: 'movies/:id',
+        path: ':id',
         component: MovieDetailComponent,
         resolve : {
           movie: MovieResolver
@@ -25,7 +25,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
 export class MovieRoutingModule { }

@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { CoreModule } from './../core/core.module';
 import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
@@ -11,13 +12,15 @@ import { MediaComponent } from './components/media/media.component';
   declarations: [SearchComponent, MediaComponent],
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   exports: [
     CommonModule,
     FormsModule,
     SearchComponent,
-    MediaComponent
+    MediaComponent,
+    HttpClientModule
   ]
 })
 export class SharedModule { }
