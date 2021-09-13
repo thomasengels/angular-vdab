@@ -7,15 +7,15 @@ import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'movies',
     component: MovieListComponent
   },
   {
-    path: 'add',
+    path: 'movies/add',
     component: MoviesAddComponent
   },
   {
-    path: ':id',
+    path: 'movies/:id',
     component: MovieDetailComponent
   }
 ];

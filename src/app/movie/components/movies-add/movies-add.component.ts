@@ -4,10 +4,7 @@ import { Router } from '@angular/router';
 import { Movie } from '../../models/movie.model';
 import { ViewChild } from '@angular/core';
 import { of } from 'rxjs';
-
-export interface Search {
-  title: string;
-}
+import { Search } from 'src/app/shared/models/search.model';
 
 @Component({
   selector: 'media-movies-add',

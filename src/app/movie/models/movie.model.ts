@@ -1,10 +1,8 @@
-export interface Movie {
+import { Media } from './../../shared/models/media.model';
+export interface Movie extends Media {
     id?: number;
-    title: string;
-    year: number;
     runtime?: number;
     plot?: string;
-    poster: string;
     rating?: number;
     onlineId?: string;
     seen?: boolean;

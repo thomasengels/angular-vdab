@@ -1,1 +1,13 @@
-<p>tv-show-list works!</p>
+<div class="switch">
+    <label>
+      private
+      <input type="checkbox" [(ngModel)]="showPublic" (ngModelChange)="getTvShows(showPublic)">
+      <span class="lever"></span>
+      public
+    </label>
+</div>
+<ul class="collection ">
+    <media-item *ngFor="let tvshow of tvshows$ | async" [media]="tvshow" (selected)="goToDetail($event)">
+    </media-item>
+
+</ul>

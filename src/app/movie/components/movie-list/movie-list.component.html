@@ -7,7 +7,7 @@
     </label>
 </div>
 <ul class="collection ">
-    <media-movie *ngFor="let movie of movies$ | async" [movie]="movie" (selected)="goToDetail($event)">
-    </media-movie>
+    <media-item *ngFor="let movie of movies$ | async" [media]="movie" (selected)="goToDetail($event)">
+    </media-item>
 
 </ul>
