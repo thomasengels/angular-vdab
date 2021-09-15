@@ -1,4 +1,3 @@
-<form #searchForm="ngForm" (ngSubmit)="searchMovie(searchForm.value)" novalidate>
-    <media-autocomplete name="title" ngModel></media-autocomplete>
-    <button type="submit" [disabled]="searchForm.invalid">Search</button>
+<form [formGroup]="searchForm">
+    <media-autocomplete formControlName="title"></media-autocomplete>
 </form>

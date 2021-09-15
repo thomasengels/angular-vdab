@@ -2,6 +2,7 @@ import { TvShowService } from './../../services/tv-show.service';
 import { titleExists } from './../../validators/custom.validator';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
+import { MatDialogRef} from '@angular/material/dialog';
 
 @Component({
   selector: 'media-tv-show-add',
@@ -11,7 +12,7 @@ import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms'
 export class TvShowAddComponent implements OnInit {
   createForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private tvShowService: TvShowService) { }
+  constructor(private fb: FormBuilder, private tvShowService: TvShowService, public dialogRef: MatDialogRef<TvShowAddComponent>) { }
 
   ngOnInit(): void {
     this.createForm = this.fb.group({
@@ -31,7 +32,9 @@ export class TvShowAddComponent implements OnInit {
 
   create(): void {
     if(this.createForm.valid){
-
+        this.tvShowService.create(this.createForm.value).subscribe(createdMovie => {
+          this.dialogRef.close(createdMovie);
+        });
     }
   }
 

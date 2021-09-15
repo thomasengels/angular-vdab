@@ -7,13 +7,8 @@
             <span class="title ">{{movie.title}}</span>
         </div>
 
-        <div class="switch">
-            <label>
-              private
-              <input type="checkbox" [(ngModel)]="isPublic[i]">
-              <span class="lever"></span>
-              public
-            </label>
-        </div>
+        <mat-checkbox [checked]="isPublic[i]" (change)="isPublic[i]=$event.checked">
+            is public
+        </mat-checkbox>
     </li>
 </ul>

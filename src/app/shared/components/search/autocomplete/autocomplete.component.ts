@@ -12,7 +12,7 @@ import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR, Validators } from
   }]
 })
 export class AutocompleteComponent implements OnInit, ControlValueAccessor {
-  form = new FormControl(null, [Validators.required, Validators.minLength(2)]);;
+  form = new FormControl(null, [Validators.required, Validators.minLength(2)]);
 
   // tslint:disable-next-line:ban-types
   onChange: Function;
@@ -24,7 +24,6 @@ export class AutocompleteComponent implements OnInit, ControlValueAccessor {
       if(this.onChange){
         this.onChange(value);
       }
-
     });
   }
 

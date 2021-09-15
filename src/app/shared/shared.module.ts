@@ -1,3 +1,4 @@
+import { MaterialModule } from './material.module';
 import { HttpClientModule } from '@angular/common/http';
 import { CoreModule } from './../core/core.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -16,6 +17,7 @@ import { AutocompleteComponent } from './components/search/autocomplete/autocomp
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
+    MaterialModule
   ],
   exports: [
     CommonModule,
@@ -23,7 +25,8 @@ import { AutocompleteComponent } from './components/search/autocomplete/autocomp
     ReactiveFormsModule,
     SearchComponent,
     MediaComponent,
-    HttpClientModule
+    HttpClientModule,
+    MaterialModule
   ]
 })
 export class SharedModule { }
