@@ -1,6 +1,6 @@
 import { HttpClientModule } from '@angular/common/http';
 import { CoreModule } from './../core/core.module';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SearchComponent } from './components/search/search.component';
@@ -13,11 +13,13 @@ import { MediaComponent } from './components/media/media.component';
   imports: [
     CommonModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule,
   ],
   exports: [
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     SearchComponent,
     MediaComponent,
     HttpClientModule

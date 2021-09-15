@@ -1,1 +1,10 @@
-<p>tv-show-add works!</p>
+<form [formGroup]="createForm" (ngSubmit)="create()">
+    <input formControlName="title" type="text" placeholder="title">
+    <input formControlName="year" type="number" placeholder="year">
+    <input formControlName="runtime" type="number" placeholder="runtime">
+    <input formControlName="seasons" type="number" placeholder="seasons">
+    <input formControlName="episodes" type="number" placeholder="episodes">
+    <input formControlName="overview" type="text" placeholder="overview">
+    <input formControlName="posterUrl" type="text" placeholder="posterUrl">
+    <button [disabled]="createForm.invalid" type="submit">Create tvshow</button>
+</form>
