@@ -1,0 +1,6 @@
+<input [ngClass]="form.invalid && form.pristine && form.untouched ? 'invalid' : ''" type="text" placeholder="search for movie" [formControl]="form">
+
+<ng-container *ngIf="form.invalid">
+    <span *ngIf="form.errors?.required">Search is required</span>
+    <span *ngIf="form.errors?.minlength">Search has a min length of 2 (current length is {{form.errors.minlength.actualLength}})</span>
+</ng-container>

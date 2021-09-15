@@ -5,11 +5,12 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SearchComponent } from './components/search/search.component';
 import { MediaComponent } from './components/media/media.component';
+import { AutocompleteComponent } from './components/search/autocomplete/autocomplete.component';
 
 
 
 @NgModule({
-  declarations: [SearchComponent, MediaComponent],
+  declarations: [SearchComponent, MediaComponent, AutocompleteComponent],
   imports: [
     CommonModule,
     FormsModule,

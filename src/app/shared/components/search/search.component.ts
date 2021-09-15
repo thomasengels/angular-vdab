@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 import { Search } from '../../models/search.model';
 
 @Component({
@@ -8,6 +8,8 @@ import { Search } from '../../models/search.model';
 })
 export class SearchComponent implements OnInit {
   @Output() search = new EventEmitter<Search>();
+
+  @ViewChild('searchForm') searchForm: any;
 
   constructor() { }
 

@@ -13,5 +13,5 @@ export function titleExists(tvShowService: TvShowService): AsyncValidatorFn {
                    }
                    return null;
                 }));
-            }
+            };
 }
