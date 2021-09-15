@@ -1,5 +1,7 @@
+import { TvShowService } from './../../services/tv-show.service';
+import { titleExists } from './../../validators/custom.validator';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'media-tv-show-add',
@@ -9,11 +11,11 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class TvShowAddComponent implements OnInit {
   createForm: FormGroup;
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private tvShowService: TvShowService) { }
 
   ngOnInit(): void {
     this.createForm = this.fb.group({
-      title: ['', Validators.required],
+      title: this.fb.control('', Validators.required, titleExists(this.tvShowService)),
       year: ['', Validators.required],
       runtime: ['', Validators.required],
       seasons: ['', Validators.required],
@@ -23,8 +25,14 @@ export class TvShowAddComponent implements OnInit {
     });
   }
 
+  get titleControl(): FormControl {
+    return this.createForm.get('title') as FormControl;
+  }
+
   create(): void {
-    
+    if(this.createForm.valid){
+
+    }
   }
 
 }

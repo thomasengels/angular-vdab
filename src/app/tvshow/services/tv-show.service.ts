@@ -15,7 +15,7 @@ export class TvShowService {
   constructor(private httpClient: HttpClient) { }
 
   exists(title: string): Observable<MovieExists> {
-    return this.httpClient.get<MovieExists>('${URL}/check', {
+    return this.httpClient.get<MovieExists>(`${this.URL}/check`, {
       params: new HttpParams().append('title', title)
     });
   }
